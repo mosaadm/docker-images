@@ -1,3 +1,7 @@
 import requests
-r = requests.get('http://localhost:8080')
-print(r)
+
+url = 'http://localhost:8080'
+names = ["Michael", "Mos3ad", "Bo2loz", "Fany", "Timy", "Gigi"]
+
+r = requests.post(url, data="test")
+print(r.text)
