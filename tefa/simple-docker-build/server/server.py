@@ -26,11 +26,11 @@ class Clients():
             printMsg("\U0001F631 Sorry, client name cannot exceed 50 char. Yours have %d" % len(name))
             return False
         if name in self.registeredNames:
-            printMsg("\U0001F61F Sorry, client `%s` is already registered" % name)
+            printMsg("\U0000274C Sorry, client `%s` is already registered" % name)
             return False
         else:
             self.registeredNames.append(name)
-            printMsg("\U0001f600 Successfully registered client. Welcome `%s`" % name)
+            printMsg("\U00002705 Successfully registered client. Welcome `%s`" % name)
             return True
 
 #=======================================#
