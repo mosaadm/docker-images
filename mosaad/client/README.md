@@ -8,5 +8,5 @@ docker build -t mosaadm/python-client .
 ```
 ### Run container
 ```
-docker run -it mosaadm/python-client
+docker run -it -v ${PWD}:/usr/app mosaadm/python-client
 ```
