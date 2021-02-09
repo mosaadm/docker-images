@@ -1,0 +1,27 @@
+version: "3.9"
+
+services:
+  t-simple-server:
+    build:
+      context: ./t-server
+      dockerfile: dockerfile
+    ports: 
+      - "8080:8080"
+    volumes: 
+      -  "${PWD}/t-server/src:/app"
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+
+  t-simple-client:
+      depends_on: 
+        - t-simple-server
+      deploy:
+        replicas: 10
+      build:
+        context: ./t-client
+        dockerfile: dockerfile
+      volumes: 
+        - "${PWD}/t-client/src:/app"
+      network_mode: "host"
+      stdin_open: true # docker run -i
+      tty: true        # docker run -t
