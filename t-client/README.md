@@ -2,11 +2,11 @@
 
 ## To run a simple client container
 
-### Build Image
+### 1st. Build Image
 ```
 docker build -t simple-client . 
 ```
-### Run container
+### 2nd. Run container
 ```
-docker run --network="host" simple-client
+docker run -it -v ${PWD}/src:/app/ simple-client
 ```
