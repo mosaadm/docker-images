@@ -1,5 +1,4 @@
 from http.server import BaseHTTPRequestHandler, HTTPServer
-from urllib.parse import parse_qs, urlparse
 
 class handler(BaseHTTPRequestHandler):
     names = []
@@ -19,7 +18,7 @@ class handler(BaseHTTPRequestHandler):
         print("Client List: ", self.names)
         print("Body:", name)
         self._set_response(name)
-
+    
 
 def run(server_class=HTTPServer, handler_class=handler, port=8080):
     server_address = ('', port)
@@ -31,11 +30,5 @@ def run(server_class=HTTPServer, handler_class=handler, port=8080):
         pass
     httpd.server_close()
     print('Stopping httpd...\n')
-
-if __name__ == '__main__':
-    from sys import argv
-
-    if len(argv) == 2:
-        run(port=int(argv[1]))
-    else:
-        run()
+    
+run()
