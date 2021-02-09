@@ -1,0 +1,34 @@
+version: '2'
+
+services:
+
+  mserver:
+    tty: true   
+    build:
+      context: ./m-server
+      dockerfile: Dockerfile
+    ports:
+     - "8080:8080"
+    volumes:
+     - m-server:/usr/app
+  
+  mclient:
+    build:
+      context: ./m-client
+      dockerfile: Dockerfile
+    volumes:
+     - m-client:/usr/app
+    depends_on:
+    - mserver   
+  
+  tclient:
+    build:
+      context: ./t-client
+      dockerfile: Dockerfile
+    depends_on:
+    - mserver 
+    network_mode: host  
+
+volumes:
+  m-server:
+  m-client:
