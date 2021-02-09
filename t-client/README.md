@@ -4,9 +4,9 @@
 
 ### 1st. Build Image
 ```
-docker build -t simple-client . 
+docker build -t t-simple-client . 
 ```
 ### 2nd. Run container
 ```
-docker run -it -v ${PWD}/src:/app/ simple-client
+docker run -it --network="host" -v ${PWD}/src:/app/ t-simple-client
 ```
