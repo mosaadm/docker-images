@@ -2,11 +2,11 @@
 
 ## To run a simple server container
 
-### Build Image
+### 1st. Build Image
 ```
 docker build -t simple-server . 
 ```
-### Run container
+### 2nd. Run container
 ```
-docker run -it --network="host" -p 9000:8080 simple-server
+docker run -it -p 9000:8080 -v ${PWD}/src/:/app/ simple-server
 ```
